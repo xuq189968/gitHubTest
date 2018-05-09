@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示客户</title>
+ <script type="text/javascript" src="adminjs/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript">
+  $(function () {
+	  $.ajax({
+	    type:"get",
+	    url:"/report/list",
+	    data:{
+
+	    },
+	    dataType:"json",
+	    success:function (data) {
+	    	var $Li = $("#container>ul");
+	    	console.log(data);
+	    for(var i = 0;i<data.length;i++){
+	      $Li.append("<li>" + data[i].id + "<span> 作者："
+	        + data[i].user + " &#160;&#160;&#160;&#160; "
+	        + data[i].product + " &#160;&#160;&#160;&#160; "
+	        + "<a href='#'>修改</a> &#160;&#160;&#160;&#160; "
+	        + "<a href='#' onclick='return clickdel()'>删除</a>"
+	        + "</span></li>");
+	    }
+	    }
+	  })
+	})
+  </script>
+</head>
+<body>
+  <div id="container">
+    <ul>
+    </ul>
+  </div>
+</body>
+<xml>

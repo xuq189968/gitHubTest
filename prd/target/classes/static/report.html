@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>报告</title>
+		
+		<link rel="stylesheet" href="css/default.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="ui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+		<script type="text/javascript" src="adminjs/jquery-1.7.2.min.js"></script>
+   		<script type="text/javascript" src="adminjs/jquery.easyui.1.2.6.min.js"></script>
+		<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+		<script type="text/javascript" src="ui/jquery.serializejson.min.js"></script>
+		
+		
+		<script type="text/javascript" >
+			$(function(){
+			/* 	$('#grid').datagrid({
+					url:'report/list',
+					columns:[[
+					          {field:'id',title:'编号',width:100},
+					          {field:'user',title:'提交人',width:100},
+					          {field:'product',title:'产品名称',width:100},
+					          {field:'company',title:'公司名称',width:100},
+					          {field:'state',title:'状态',width:100},
+					          {field:'-',title:'编辑',width:100,formatter:function(value,row,index){
+					        	  return "<a href='http://127.0.0.1:8011/report/downLoad/"+index+"'>下载</a>  <a href='http://127.0.0.1:8011/report/preview/"+index+"' target='_blank'>在线预览</a>";
+							  }}
+					          ]],
+					singleSelect:true
+				}); */
+				$.ajax({
+					url:'/report/list',
+					data:{
+						
+					},
+					dataType:'json',
+					type:'get',
+					success:function(data){
+						
+						/* var s = "{'a':'a','b':'b'}"; */
+						/* var s ='{"name":"s"}'; */
+							/* 	var da = JSON.parse(s); */
+				        var d = data.toString();
+				        console.log(d);
+						alert(da);
+					/* 	alert(data);
+                        var d = data;
+                        for(var i=0;i<d.length;i++){
+                        	alert(d[i].id);
+                        } */
+					}
+				})
+				
+			});
+		</script>
+		
+	</head>
+	<body>
+		<table id="grid"></table>
+	</body>
+</html>
